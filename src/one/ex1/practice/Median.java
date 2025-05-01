@@ -15,7 +15,7 @@ public class Median {
         System.out.print("c의 값: ");
         int c = scanner.nextInt();
 
-        System.out.println("중앙값은 "+ med3(a, b, c) + "입니다.");
+        System.out.println("중앙값은 " + med3(a, b, c) + "입니다.");
     }
 
 
@@ -28,7 +28,7 @@ public class Median {
             return a;
         } else if (b > c) {
             return c;
-        }  else {
+        } else {
             return b;
         }
     }

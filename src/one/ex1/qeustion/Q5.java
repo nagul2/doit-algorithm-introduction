@@ -1,8 +1,6 @@
 package one.ex1.qeustion;
 
-// 세 값의 대소 관계인 13가지 조합의 중앙값을 구하여 출력하는 프로그램을 작성
-// 실습 Median, Max3Method 참고
-public class Q4 {
+public class Q5 {
     public static void main(String[] args) {
         System.out.println("mid3(1, 2, 3) = " + mid3(3, 2, 1)); // a>b>c, return = b
         System.out.println("mid3(3, 1, 1) = " + mid3(3, 1, 1)); // a>c=b, return = b
@@ -24,27 +22,18 @@ public class Q4 {
             result += mid3(3, 2, 1);
         }
 
+
         long end = System.nanoTime();
         System.out.println("mid3 실행 시간: " + (end - start) + " ns");
         System.out.println("결과 누적값(최적화 방지용): " + result);
     }
 
+    // 중앙값을 구하는 메서드는 아래처럼 구할 수 있지만 Median 클래스보다 효율이 떨어짐, 그 이유를 작성
+    // >> Median은 if 안에 또 if를 써서 조건을 한번만 판단하고 넘어감
+    // >> 하지만 이 메서드는 조건을 묶어놔서 이미 통과한 조건도 다시 확인할 수 있어서 효율이 떨어짐
     static int mid3(int a, int b, int c) {
-        if (a >= b) {
-            if (b >= c) {   // a >= b, b >= c
-                return b;
-            } else if (c >= a) {    // a >= b, c > b, c >= a
-                return a;
-            } else {    // a >= b, c > b, a > c
-                return c;
-            }
-        } else if (a > c) { // b > a, a > c
-            return a;
-        } else if (b > c) {  // b > a, c > a, b > c
-            return c;
-        } else {    // b > a, c > a, c > b
-            return b;
-        }
-
+        if ((b >= a && c <= a) || (b <= a && c >= a)) return a;
+        else if ((a > b && c < b) || (a < b && c > b)) return b;
+        return c;
     }
 }
