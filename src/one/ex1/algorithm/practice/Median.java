@@ -1,4 +1,4 @@
-package one.ex1.practice;
+package one.ex1.algorithm.practice;
 
 import java.util.Scanner;
 

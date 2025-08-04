@@ -1,4 +1,4 @@
-package one.ex1.qeustion;
+package one.ex1.algorithm.qeustion;
 
 public class Q1Q2Q3 {
     public static void main(String[] args) {
